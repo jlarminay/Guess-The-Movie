@@ -1,0 +1,8 @@
+{
+  "name": "guessthemovie",
+  "version": "0.0.0",
+  "repository": "git@github.com:jlarminay/Guess-The-Movie.git",
+  "scripts": {
+    "start": "docker-compose up -d"
+  }
+}
