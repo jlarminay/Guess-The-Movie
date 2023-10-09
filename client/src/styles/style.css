@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h3 {
+  @apply tw_text-3xl tw_mb-4;
+}
+h4 {
+  @apply tw_text-2xl tw_mb-4;
+}
+h5 {
+  @apply tw_text-xl tw_mb-2;
+}
+
+a[href^="http"] {
+  @apply tw_underline;
+}
+
+.mono {
+  @apply tw_font-mono;
+}
