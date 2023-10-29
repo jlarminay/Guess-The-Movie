@@ -29,7 +29,7 @@ function image (title) {
 </script>
 
 <template>
-  <div class="tw_mt-6 tw_p-2">
+  <div class="tw_mt-6 tw_p-4">
     <div
       v-if="Object.keys(scoreStore.rawScores).length === allMovies.length"
       class="tw_mb-10 tw_mt-4 tw_text-center"
@@ -56,6 +56,9 @@ function image (title) {
       :to="{name: 'MovieView', params: {movieId: 'random'}}"
       class="tw_mb-8 tw_w-full"
     />
+
+    {{ allMovies.length }}
+    {{ filmStore.totalMovieCount }}
 
     <div v-if="allMovies.length !== filmStore.totalMovieCount" class="tw_mb-8 tw_text-center">
       <h5>Next Game in <span class="mono">{{ Duration.fromObject({seconds: timeleft}).toFormat('hh:mm:ss') }}</span></h5>
@@ -96,6 +99,7 @@ function image (title) {
         {{ movie.title }}
         <img
           :src="image(movie.title)"
+          alt="no image"
           class="tw_h-full tw_w-full tw_object-contain"
         >
       </div>
