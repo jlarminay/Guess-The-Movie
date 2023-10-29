@@ -11,6 +11,7 @@ export default defineStore({
   persist: true,
 
   state: () => ({
+    totalMovieCount: movieData.length,
     allMovies: [],
     allMoviesAge: 0,
     allMoviesMaxAge: 60 * 60 * 1000 // 1 hour

@@ -18,6 +18,14 @@ onMounted(async () => {
 onUnmounted(() => {
   clearInterval(timer.value)
 })
+
+function image (title) {
+  title = title
+    .replace(/[/:*"<>|]/g, '')
+    .replace(/ /g, '_')
+    .toLowerCase()
+  return `/images/${title}/1.jpg`
+}
 </script>
 
 <template>
@@ -49,7 +57,7 @@ onUnmounted(() => {
       class="tw_mb-8 tw_w-full"
     />
 
-    <div class="tw_mb-8 tw_text-center">
+    <div v-if="allMovies.length !== filmStore.totalMovieCount" class="tw_mb-8 tw_text-center">
       <h5>Next Game in <span class="mono">{{ Duration.fromObject({seconds: timeleft}).toFormat('hh:mm:ss') }}</span></h5>
     </div>
 
@@ -71,7 +79,7 @@ onUnmounted(() => {
           tw_text-center
         "
       >
-        # {{ movie.id }} {{ movie.title }}
+        # {{ movie.id }}
       </q-btn>
       <div class="tw_flex tw_justify-center">
         <div
@@ -84,6 +92,13 @@ onUnmounted(() => {
       <span class="tw_w-[90px] tw_text-center">
         {{ scoreStore.rawScores[movie.id]?(scoreStore.rawScores[movie.id]<=5?'🏆 Won':'😞 Lost'):' Unplayed' }}
       </span>
+      <div class="tw_w-[300px] tw_border">
+        {{ movie.title }}
+        <img
+          :src="image(movie.title)"
+          class="tw_h-full tw_w-full tw_object-contain"
+        >
+      </div>
     </div>
   </div>
 </template>
