@@ -140,5 +140,11 @@ export default [
   'Warrior',
   'Trainspotting',
   'The Sixth Sense',
-  'Dial M for Murder'
+  'Dial M for Murder',
+  'The Passion of the Christ',
+  'Yojimbo',
+  'The Village',
+  'The Royal Tenenbaums',
+  'A Hard Day’s Night',
+  'Shaun Of The Dead'
 ]

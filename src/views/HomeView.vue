@@ -57,9 +57,6 @@ function image (title) {
       class="tw_mb-8 tw_w-full"
     />
 
-    {{ allMovies.length }}
-    {{ filmStore.totalMovieCount }}
-
     <div v-if="allMovies.length !== filmStore.totalMovieCount" class="tw_mb-8 tw_text-center">
       <h5>Next Game in <span class="mono">{{ Duration.fromObject({seconds: timeleft}).toFormat('hh:mm:ss') }}</span></h5>
     </div>
@@ -95,7 +92,7 @@ function image (title) {
       <span class="tw_w-[90px] tw_text-center">
         {{ scoreStore.rawScores[movie.id]?(scoreStore.rawScores[movie.id]<=5?'🏆 Won':'😞 Lost'):' Unplayed' }}
       </span>
-      <div class="tw_w-[300px] tw_border">
+      <div v-if="false" class="tw_w-[250px] tw_border">
         {{ movie.title }}
         <img
           :src="image(movie.title)"

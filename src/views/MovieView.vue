@@ -1,9 +1,7 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue'
 import { useFilmStore, useScoreStore } from '@/stores'
-import { DateTime } from 'luxon'
 
-const env = import.meta.env
 const filmStore = useFilmStore()
 const scoreStore = useScoreStore()
 
@@ -93,7 +91,7 @@ const imageUrl = computed(() => {
 <template>
   <div v-if="movie!==null" class="tw_mt-6 tw_p-2">
     <div class="tw_mb-2 tw_text-center">
-      <h5>Movie #{{ movie.id }} | {{DateTime.fromISO(env.VITE_FIRST_DATE).plus({days: movie.id-1}).toFormat('DD')}}</h5>
+      <h5>Movie #{{ movie.id }} | {{movie.date.toFormat('DD')}}</h5>
     </div>
     <div>
       <div class="tw_pointer-events-none tw_aspect-video tw_overflow-hidden tw_rounded tw_bg-black">

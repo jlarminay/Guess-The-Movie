@@ -16,23 +16,22 @@ export default defineStore({
   }),
 
   actions: {
-    async getAllMovies () {
+    async getAllMovies (getAll = false) {
       this.allMovies = movieData
         .filter((_movie, id) => {
+          if (getAll) return true
           return DateTime.fromISO(env.VITE_FIRST_DATE).plus({ days: id }).diffNow('days').toObject().days <= 0
         })
         .map((movie, id) => {
           return {
             id: id + 1,
-            title: movie
+            title: movie,
+            date: DateTime.fromISO(env.VITE_FIRST_DATE).plus({ days: id })
           }
         })
         .reverse()
 
       return this.allMovies
-    },
-    async getAll () {
-      return movieData
     },
     async getSingleMovie (id) {
       await this.getAllMovies()
@@ -45,6 +44,7 @@ export default defineStore({
         ...movieData,
         ...possibleMovies
       ].sort((_a, _b) => Math.random() > 0.5)
+      // Remove duplicates
       return [...new Set(combination)]
     }
   }

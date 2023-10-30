@@ -37,7 +37,7 @@ export default createRouter({
       component: HelpView
     },
     {
-      path: '/list',
+      path: '/admin/list',
       name: 'ListView',
       component: ListView
     },
