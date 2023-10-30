@@ -39,8 +39,9 @@ const cleanedMovies = computed(() => {
     <div class="tw_mb-10">
       <q-input
         v-model="search"
-        label="Search..."
+        placeholder="Search..."
         outlined
+        dense
         class="tw_rounded tw_bg-white"
       />
       <div class="tw_text-center">
