@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="tw_mt-6 tw_p-2">
+  <div class="tw_mt-6 tw_p-4">
     <h3>Stats</h3>
 
     <p>GuessTheMovie is a small project I created as a personal endeavor to practice using some new tools, inspired by popular games like <a href="https://www.nytimes.com/games/wordle/index.html" target="_blank">Wordle</a>, <a href="https://guessthe.game/" target="_blank">GuessTheGame</a>, <a href="https://framed.wtf/" target="_blank">Framed</a>, and my own love of movies.</p>

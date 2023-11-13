@@ -22,13 +22,13 @@ export default defineStore({
       this.allMovies = movieData
         .filter((_movie, id) => {
           if (getAll) return true
-          return DateTime.fromISO(env.VITE_FIRST_DATE).plus({ days: id }).diffNow('days').toObject().days <= 0
+          return DateTime.fromISO(env.VITE_FIRST_DATE).plus({ days: id * 2 }).diffNow('days').toObject().days <= 0
         })
         .map((movie, id) => {
           return {
             id: id + 1,
             title: movie,
-            date: DateTime.fromISO(env.VITE_FIRST_DATE).plus({ days: id })
+            date: DateTime.fromISO(env.VITE_FIRST_DATE).plus({ days: id * 2 })
           }
         })
         .reverse()

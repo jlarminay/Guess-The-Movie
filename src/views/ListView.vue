@@ -35,7 +35,7 @@ const cleanedMovies = computed(() => {
 </script>
 
 <template>
-  <div class="tw_mx-4 tw_mt-6">
+  <div class="tw_mt-6 tw_p-4">
     <div class="tw_mb-10">
       <q-input
         v-model="search"

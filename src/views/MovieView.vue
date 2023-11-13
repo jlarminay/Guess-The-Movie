@@ -88,6 +88,11 @@ const imageUrl = computed(() => {
     .toLowerCase()
   return `/images/${title}/${showImage.value}.jpg`
 })
+const previousGuesses = computed(() => {
+  const tmp = pastGuesses.value
+  tmp.reverse()
+  return tmp
+})
 
 function playAgain () {
   getRequiredData()
@@ -100,7 +105,7 @@ function playAgain () {
 </script>
 
 <template>
-  <div v-if="movie!==null" class="tw_mt-6 tw_p-2">
+  <div v-if="movie!==null" class="tw_mt-6 tw_p-4">
     <div class="tw_mb-2 tw_text-center">
       <h5>Movie #{{ movie.id }} | {{movie.date.toFormat('DD')}}</h5>
     </div>
@@ -217,7 +222,7 @@ function playAgain () {
             v-if="state==='playing' || showGuesses"
           >
             <div
-              v-for="(guess,i) in pastGuesses.reverse()"
+              v-for="(guess,i) in previousGuesses"
               :key="i"
               class="tw_flex tw_items-center tw_justify-start tw_gap-2 tw_p-2"
             >

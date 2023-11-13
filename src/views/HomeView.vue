@@ -12,7 +12,8 @@ const timeleft = ref(0)
 onMounted(async () => {
   allMovies.value = await filmStore.getAllMovies()
   timer.value = setInterval(() => {
-    timeleft.value = DateTime.now().plus({ days: 1 }).startOf('day').diffNow('seconds').as('seconds').toFixed(0)
+    const nextDay = allMovies.value[0].date.plus({ days: 2 })
+    timeleft.value = DateTime.fromISO(nextDay).startOf('day').diffNow('seconds').as('seconds').toFixed(0)
   }, 500)
 })
 onUnmounted(() => {
@@ -34,7 +35,7 @@ function image (title) {
       v-if="Object.keys(scoreStore.rawScores).length === allMovies.length"
       class="tw_mb-10 tw_mt-4 tw_text-center"
     >
-      <h3>You've' played all the games!</h3>
+      <h3>You've played all the games!</h3>
       <h4>You can reset you score and play again!</h4>
       <q-btn
         color="negative"
@@ -58,6 +59,7 @@ function image (title) {
     />
 
     <div v-if="allMovies.length !== filmStore.totalMovieCount" class="tw_mb-8 tw_text-center">
+      <h6>New Movie Every 2 Days!</h6>
       <h5>Next Game in <span class="mono">{{ Duration.fromObject({seconds: timeleft}).toFormat('hh:mm:ss') }}</span></h5>
     </div>
 
