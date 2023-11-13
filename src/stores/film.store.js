@@ -1,6 +1,8 @@
 import { defineStore } from 'pinia'
 import { DateTime } from 'luxon'
 
+import { useScoreStore } from '@/stores'
+
 import movieData from '@/assets/movieData.js'
 import possibleMovies from '@/assets/possibleMovies.js'
 
@@ -35,7 +37,22 @@ export default defineStore({
     },
     async getSingleMovie (id) {
       await this.getAllMovies()
-      if (id === 'random') id = Math.floor(Math.random() * this.allMovies.length) + 1
+      const scoreStore = useScoreStore()
+      const tempMovies = this.allMovies.filter(movie => !(scoreStore.getRawScores()[movie.id]))
+
+      // if random and user played all games
+      if (id === 'random' && tempMovies.length === 0) {
+        id = Math.floor(Math.random() * this.allMovies.length) + 1
+        id = parseInt(id)
+        return this.allMovies.reverse()[id - 1] || false
+      }
+
+      // if random
+      if (id === 'random') {
+        id = Math.floor(Math.random() * tempMovies.length) + 1
+        return tempMovies[id - 1] || false
+      }
+
       id = parseInt(id)
       return this.allMovies.reverse()[id - 1] || false
     },

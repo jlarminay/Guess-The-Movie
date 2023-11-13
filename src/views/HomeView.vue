@@ -90,7 +90,7 @@ function image (title) {
         />
       </div>
       <span class="tw_w-[90px] tw_text-center">
-        {{ scoreStore.rawScores[movie.id]?(scoreStore.rawScores[movie.id]<=5?'🏆 Won':'😞 Lost'):' Unplayed' }}
+        {{ scoreStore.rawScores[movie.id]?(scoreStore.rawScores[movie.id]<=5?'🏆 Won':'😞 Lost'):' Not Played' }}
       </span>
       <div v-if="false" class="tw_w-[250px] tw_border">
         {{ movie.title }}

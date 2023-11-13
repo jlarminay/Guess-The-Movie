@@ -22,9 +22,13 @@ const props = defineProps({
 })
 
 onMounted(async () => {
+  await getRequiredData()
+})
+
+async function getRequiredData () {
   movie.value = await filmStore.getSingleMovie(props.movieId)
   possibleMovies.value = await filmStore.getAllPossibleMovies()
-})
+}
 
 function filterMovieList (val, update, abort) {
   // check if val is empty or only 1 character
@@ -48,7 +52,6 @@ function filterMovieList (val, update, abort) {
       )
   })
 }
-
 function checkGuess (skip = false) {
   // if no guess or skip is flase, return
   if (guess.value === '' && skip !== true) return
@@ -78,7 +81,6 @@ function checkGuess (skip = false) {
   move.value++
   showImage.value = move.value
 }
-
 const imageUrl = computed(() => {
   const title = movie.value.title
     .replace(/[/:*"<>|]/g, '')
@@ -86,6 +88,15 @@ const imageUrl = computed(() => {
     .toLowerCase()
   return `/images/${title}/${showImage.value}.jpg`
 })
+
+function playAgain () {
+  getRequiredData()
+  move.value = 1
+  showImage.value = 1
+  guess.value = ''
+  pastGuesses.value = []
+  state.value = 'playing'
+}
 </script>
 
 <template>
@@ -180,6 +191,16 @@ const imageUrl = computed(() => {
             unelevated
             :to="{name: 'HomeView'}"
             class="tw_mt-2"
+          />
+          <q-btn
+            v-if="movieId==='random'"
+            color="primary"
+            label="Random Movie"
+            size="md"
+            no-caps
+            unelevated
+            class="tw_mt-2"
+            @click="playAgain()"
           />
         </div>
 

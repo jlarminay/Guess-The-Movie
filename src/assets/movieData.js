@@ -363,7 +363,7 @@ export default [
   'Shrek',
   'Sing',
   'Grand Piano',
-  'Cats 1998',
+  'Cats (1998)',
   'High School Musical',
   'Hard Ticket to Hawaii',
   'Hardcore Henry',

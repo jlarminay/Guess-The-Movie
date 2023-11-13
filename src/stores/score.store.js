@@ -34,6 +34,9 @@ export default defineStore({
         this.loses++
       }
     },
+    getRawScores () {
+      return this.rawScores
+    },
     resetScore () {
       this.games = 0
       this.wins = 0

@@ -6,7 +6,7 @@ const filmStore = useFilmStore()
 
 const allMovies = ref([])
 const search = ref('')
-const loadAmount = ref(20)
+const loadAmount = ref(50)
 
 onMounted(async () => {
   allMovies.value = await filmStore.getAllMovies(true)
@@ -20,11 +20,11 @@ function image (title, number) {
   return `/images/${title}/${number}.jpg`
 }
 function loadMore () {
-  loadAmount.value += 10
+  loadAmount.value += 20
 }
 
 const cleanedMovies = computed(() => {
-  // only return up to loadamount
+  // only return up to loadAmount
   return allMovies.value
     .filter(movie => {
       return movie.title.toLowerCase().includes(search.value.toLowerCase())
