@@ -1,22 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-$primary: #054A91;
+$primary: #054a91;
 $secondary: #bb6412;
-$accent: #3E7CB1;
-$dark: #1D1D1D;
+$accent: #3e7cb1;
+$dark: #1d1d1d;
 $dark-light: #444444;
 
 $positive: #33ad50;
 $negative: #d9312d;
-$info: #31CCEC;
-$warning: #F2C037;
+$info: #31ccec;
+$warning: #f2c037;
 
-$typography-font-family: 'Poppins', 'Roboto', '-apple-system', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$typography-font-family: 'Poppins', 'Roboto', '-apple-system', 'Helvetica Neue', Helvetica, Arial,
+  sans-serif !default;
 
 // $body1: (size: 1rem, line-height: 1rem, letter-spacing: .03125em, weight: 400) !default;
 // $body2: (size: 1rem, line-height: 1rem, letter-spacing: .01786em, weight: 400) !default;
 // $min-line-height: 1rem !default;
-// $input-font-size: 1rem !default; 
+// $input-font-size: 1rem !default;
 
 // $body-font-size   : 1rem !default;
 // $body-line-height : 1rem !default;
@@ -30,5 +31,5 @@ body {
 }
 
 .q-menu {
-  background-color: $dark!important;
+  background-color: $dark !important;
 }

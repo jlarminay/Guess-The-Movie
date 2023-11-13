@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
 
 export default defineStore({
   id: 'score',
@@ -14,42 +14,42 @@ export default defineStore({
       3: 0,
       4: 0,
       5: 0,
-      6: 0
+      6: 0,
     },
-    rawScores: {}
+    rawScores: {},
   }),
 
   actions: {
-    addScore (movieId, score) {
+    addScore(movieId, score) {
       // add to raw score
-      this.rawScores[movieId] = score
+      this.rawScores[movieId] = score;
       // add to score breakdown
-      this.breakdown[score]++
+      this.breakdown[score]++;
       // add to total games
-      this.games++
+      this.games++;
       // add to wins or loses
       if (score <= 5) {
-        this.wins++
+        this.wins++;
       } else {
-        this.loses++
+        this.loses++;
       }
     },
-    getRawScores () {
-      return this.rawScores
+    getRawScores() {
+      return this.rawScores;
     },
-    resetScore () {
-      this.games = 0
-      this.wins = 0
-      this.loses = 0
+    resetScore() {
+      this.games = 0;
+      this.wins = 0;
+      this.loses = 0;
       this.breakdown = {
         1: 0,
         2: 0,
         3: 0,
         4: 0,
         5: 0,
-        6: 0
-      }
-      this.rawScores = {}
-    }
-  }
-})
+        6: 0,
+      };
+      this.rawScores = {};
+    },
+  },
+});

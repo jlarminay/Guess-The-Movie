@@ -144,5 +144,5 @@ export default [
   'The Royal Tenenbaums',
   'A Hard Day’s Night',
   'Shaun Of The Dead',
-  'Cats (2019)'
-]
+  'Cats (2019)',
+];

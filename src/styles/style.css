@@ -12,7 +12,7 @@ h5 {
   @apply tw_text-xl tw_mb-2;
 }
 
-a[href^="http"] {
+a[href^='http'] {
   @apply tw_underline;
 }
 

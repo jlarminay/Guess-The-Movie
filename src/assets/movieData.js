@@ -368,5 +368,5 @@ export default [
   'Hard Ticket to Hawaii',
   'Hardcore Henry',
   'Birdemic: Shock and Terror',
-  'After Life'
-]
+  'After Life',
+];

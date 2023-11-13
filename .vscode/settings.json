@@ -1,0 +1,11 @@
+{
+  "cSpell.words": [
+    "pinia",
+    "timeleft",
+    "VITE",
+    "Wordle"
+  ],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true
+}

@@ -10,7 +10,7 @@ function formatNumber (number) {
 </script>
 
 <template>
-  <div class="tw_mt-6 tw_p-4">
+  <div class="tw_mt-6 tw_p-2">
     <h3>Stats</h3>
     <pre>{{ scoreStore.allScores }}</pre>
 
