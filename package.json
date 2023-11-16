@@ -10,12 +10,14 @@
   "dependencies": {
     "@quasar/extras": "^1.16.4",
     "axios": "^1.4.0",
+    "chart.js": "^4.4.0",
     "luxon": "^3.3.0",
     "pinia": "^2.1.4",
     "pinia-plugin-persistedstate": "^3.1.0",
     "quasar": "^2.12.2",
     "vue": "^3.3.4",
     "vue-axios": "^3.5.2",
+    "vue-chartjs": "^5.2.0",
     "vue-router": "^4.2.4"
   },
   "devDependencies": {

@@ -1,40 +1,76 @@
 <script setup>
-import { useScoreStore } from '@/stores'
+import { useScoreStore } from '@/stores';
+import { Bar } from 'vue-chartjs';
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  Colors,
+} from 'chart.js';
 
-const scoreStore = useScoreStore()
+ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, Colors);
 
-function formatNumber (number) {
-  if (number === Infinity) return 0
-  return (Math.floor(number * 100)).toFixed(1) || 0
+const scoreStore = useScoreStore();
+
+function formatNumber(number) {
+  if (number === Infinity) return 0;
+  return Math.floor(number * 100).toFixed(1) || 0;
 }
 </script>
 
 <template>
   <div class="tw_mt-6 tw_p-2">
     <h3>Stats</h3>
-    <pre>{{ scoreStore.allScores }}</pre>
 
     <div class="tw_flex tw_justify-center tw_gap-2">
       <div class="tw_w-1/4 tw_px-4 tw_text-center">
-        <h3 class="tw_mb-0">{{ scoreStore.games }}</h3>
-        <h4>Played</h4>
+        <p class="tw_mb-0">{{ scoreStore.games }}</p>
+        <p>Played</p>
       </div>
       <div class="tw_w-1/4 tw_px-4 tw_text-center">
-        <h3 class="tw_mb-0">{{ scoreStore.wins }}</h3>
-        <h4>Won</h4>
+        <p class="tw_mb-0">{{ scoreStore.wins }}</p>
+        <p>Won</p>
       </div>
       <div class="tw_w-1/4 tw_px-4 tw_text-center">
-        <h3 class="tw_mb-0">{{ formatNumber(scoreStore.wins/scoreStore.games) }}</h3>
-        <h4>Win %</h4>
+        <p class="tw_mb-0">{{ formatNumber(scoreStore.wins / scoreStore.games) }}</p>
+        <p>Win %</p>
       </div>
     </div>
 
-    <div>
-      <pre>{{ scoreStore.breakdown }}</pre>
+    <div class="tw_pt-10">
+      <h3>Guess Breakdown</h3>
+      <Bar
+        :options="{
+          responsive: true,
+          legend: {
+            display: false,
+          },
+        }"
+        :data="{
+          labels: ['1', '2', '3', '4', '5'],
+          datasets: [
+            {
+              data: [
+                scoreStore.breakdown[1],
+                scoreStore.breakdown[2],
+                scoreStore.breakdown[3],
+                scoreStore.breakdown[4],
+                scoreStore.breakdown[5],
+              ],
+            },
+          ],
+        }"
+      />
     </div>
 
     <div class="tw_mt-10 tw_text-center">
-      <p>You can reset your score here. This will delete everything and you can try playing again.</p>
+      <p>
+        You can reset your score here. This will delete everything and you can try playing again.
+      </p>
       <q-btn
         color="negative"
         label="Reset Score"
