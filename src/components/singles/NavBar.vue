@@ -16,7 +16,7 @@
     </div>
     <div class="tw_flex tw_gap-2">
       <q-btn round flat dense icon="calendar_month" :to="{ name: 'HomeView' }" />
-      <q-btn round flat dense icon="bar_chart" :to="{ name: 'ScoresView' }" />
+      <!-- <q-btn round flat dense icon="bar_chart" :to="{ name: 'ScoresView' }" /> -->
       <q-btn round flat dense icon="info_outline" :to="{ name: 'InfoView' }" />
       <!-- <q-btn
         round
