@@ -56,7 +56,7 @@ jobs:
           password: ${{ secrets.FTP_PASS }}
           port: 21
           local-dir: './dist/'
-          server-dir: '/movie.joshlarminay.com/'
+          server-dir: '/projects.joshlarminay.com/movies/'
           dry-run: false
 
   # remove_files:
