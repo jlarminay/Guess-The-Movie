@@ -1,11 +1,7 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /
-
-  # Handle requests for files that exist on the server
+  RewriteBase /movies/
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-
-  # Rewrite all other URLs to index.html
   RewriteRule ^ index.html [QSA,L]
 </IfModule>
