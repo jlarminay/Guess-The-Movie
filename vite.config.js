@@ -11,7 +11,7 @@ export default defineConfig({
     vue({
       template: { transformAssetUrls },
     }),
-    VitePWA({ registerType: 'autoUpdate' }),
+    // VitePWA({ registerType: 'autoUpdate' }),
     quasar({
       sassVariables: 'src/styles/quasar.scss',
     }),
