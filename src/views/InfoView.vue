@@ -13,12 +13,6 @@
     </p>
 
     <p>
-      The main objective of this project was to explore and test out various technologies, including
-      <a href="https://postgrest.org/en/stable/" target="_blank">Postgrest</a>, PWA (Progressive Web
-      App) development with Vue, and deploying the game to the Google Play Store.
-    </p>
-
-    <p>
       Most of the images have been sourced from
       <a href="https://film-grab.com/" target="_blank">Film-Grab</a> or other miscellaneous sources.
     </p>
