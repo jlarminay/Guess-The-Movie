@@ -92,7 +92,7 @@ const imageUrl = computed(() => {
     .replace(/[/:*"<>|]/g, '')
     .replace(/ /g, '_')
     .toLowerCase();
-  return `/images/${title}/${showImage.value}.jpg`;
+  return `/movies/images/${title}/${showImage.value}.jpg`;
 });
 const previousGuesses = computed(() => {
   const tmp = pastGuesses.value;
