@@ -3,5 +3,5 @@
   RewriteBase /movies/
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^ index.html [QSA,L]
+  RewriteRule ^ /movies/index.html [QSA,L]
 </IfModule>

@@ -8,7 +8,7 @@ import HelpView from '@/views/HelpView.vue';
 import ListView from '@/views/ListView.vue';
 
 export default createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/movies/'),
   routes: [
     {
       path: '/home',
